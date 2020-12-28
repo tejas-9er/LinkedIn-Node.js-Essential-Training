@@ -10,3 +10,4 @@ console.log(`${greeting} ${user}`);
 
 //node globalProcess --user Tejas --greeting "Hidely Hoe"
 //In the above command we are providing flags to let us know what variables we are passing
+//In the abovev command the sequence of the flags doesn't matter because we are using a function to grab the value of the flags.
