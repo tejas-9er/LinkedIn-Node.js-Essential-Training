@@ -25,6 +25,8 @@ process.stdin.on('data', data => {
     // the data is passed to the function as a buffer or a binary
     // hence it needs to be converted to string
     process.stdout.write(`\n\n ${data.toString().trim()}\n\n`);
+    // exit using the following command and avoid infinite loop.
+    process.exit();
 });
 
 // The above code ends in ainfinite loop.
