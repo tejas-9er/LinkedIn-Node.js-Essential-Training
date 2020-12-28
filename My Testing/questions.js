@@ -16,8 +16,16 @@ const ask = (i = 0) => {
 // calling the function
 ask();
 
-// The function exits after asking the first question and >
-// This happens because ths node.js module is running synchonously
-// i.e. we are declaring the arra, asking the question
-// after that node.js thinks that there is nothing else to do and  exits
-// To stop this we will use stdin or standard input to run asnchronously
+// wireup a listener using standard input
+// first argument is the data event that we are listening for
+// i.e. we are reading input from keyboard
+// the second argument is the handler or the function that we will use to handle that event
+process.stdin.on('data', data => {
+    //echoing data backk to the user
+    // the data is passed to the function as a buffer or a binary
+    // hence it needs to be converted to string
+    process.stdout.write(`\n\n ${data.toString().trim()}\n\n`);
+});
+
+// The above code ends in ainfinite loop.
+// It asks the first question and then keeps on taking input and printing it.
