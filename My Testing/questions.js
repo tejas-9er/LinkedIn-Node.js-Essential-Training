@@ -37,5 +37,21 @@ process.stdin.on('data', data => {
     }
 });
 
-// The above code ends in ainfinite loop.
-// It asks the first question and then keeps on taking input and printing it.
+// Handling the exit event
+// handling the listener with a callback function passed as the second argument
+process.on('exit', () => {
+
+    //writng the answers back to you
+    // The following array must be in the order of the questions asked
+    // This is called array destructuring
+    const [name, activity, lang] = answers;
+    // We can print out output in the following manner
+    // it is called the template string
+    console.log(`
+
+    Thank you for your answers.
+
+    Go ${activity} ${name} you can write ${lang} code later
+
+    `);
+});
