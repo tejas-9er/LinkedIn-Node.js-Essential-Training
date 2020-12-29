@@ -16,15 +16,16 @@ const incTime = () => {
 console.log(`Setting a ${waitTime / 1000} seconds`);
 
 // invoking a function after the timer is finished
-// following is a one line arrow function
-const timerFinished = () => console.log("done");
+// int the following code, we are clearing the intercal as well.
+const timerFinished = () => {
+    clearInterval(interval);
+    console.log("done");
+    // the apploication exits because the interval is cleared and no longer ticking
+}
 
 // Call the increment time function ever half second
-setInterval(incTime, waitInterval)
+const interval = setInterval(incTime, waitInterval)
 
 // invoking setTimeout, first argument is the function to be invoked
 // second argument is the waitTime
 setTimeout(timerFinished, waitTime);
-
-// above code leads to infinite loop for interval.
-// To stop that we need to clear the interval
