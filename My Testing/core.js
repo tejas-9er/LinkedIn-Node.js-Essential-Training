@@ -1,8 +1,7 @@
 const path = require("path");
+const util = require("util");
 
-// core modules come with node.js and we don't have to install them using npm
+// with utilit module we also get the date when we do util.log
+util.log(path.basename(__filename));
 
-// creating a path to uploads folder
-const dirUploads = path.join(__dirname, "www", "files", "uploads");
-
-console.log(dirUploads);
+util.log(" ^ The name of the current file");
